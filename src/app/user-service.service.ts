@@ -25,7 +25,7 @@ export class UserServiceService {
   }
 
   removeTask(index:any):any{
-    return this.http.delete(`${this.url}/${index}`)
+    return this.http.delete(`${this.url}${index}`)
   }
 
   editTask(data:any):any{
