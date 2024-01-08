@@ -9,11 +9,11 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
   url:any='https://todoapapi.onrender.com/';
   postData(data:any){
-  return this.http.post(`${this.url}/register`,data);
+  return this.http.post(`${this.url}register`,data);
   }
 
   checkUser(data:any):any{
-    return this.http.post(`${this.url}/login`,data);
+    return this.http.post(`${this.url}login`,data);
   }
 
   getTask():any{
