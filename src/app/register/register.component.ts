@@ -20,7 +20,7 @@ export class RegisterComponent {
       this.userService.postData(this.registerform.value).subscribe({
         next:(result:any)=>{
             console.log(result)
-            this.toastr.success('Hello world!');
+            this.toastr.success('Registration done!');
         },
         error:(error:any)=>console.log('Error',error)
       })
