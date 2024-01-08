@@ -1,0 +1,42 @@
+
+<h1 class="display-3 text-center">Login</h1>
+<div class="container">
+
+  <form [formGroup]="loginForm">
+
+    
+    <!--email-->
+    <div class="form-group">
+      <label>Email address</label>
+      <input formControlName="email" type="email" class="form-control" placeholder="Enter email">
+
+      <div *ngIf="this.loginForm.get('email')?.touched">
+
+        <small *ngIf="this.loginForm.get('email')?.errors?.['required']" class="text-danger">enter mail
+          address</small>
+        <small *ngIf="this.loginForm.get('email')?.errors?.['email']" class="text-danger">enter valid email
+          address</small>
+
+      </div>
+      <small *ngIf="isErrorEmail" class="text-danger">invalid email</small>
+      <!--email-->
+
+     
+
+      <!--password-->
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input formControlName="password" type="password" class="form-control" placeholder="Password">
+      <div *ngIf="this.loginForm.get('password')?.touched">
+      <small *ngIf="this.loginForm.get('password')?.errors?.['required']" class="text-danger">enter password</small>
+      <small *ngIf="this.loginForm.get('password')?.errors?.['pattern']" class="text-danger">Invalid password</small>
+    </div>
+    </div>
+    <div *ngIf="isErrorPassword" class="text-danger">invalid password</div>
+    <!--password-->
+    <div class="form-group mt-3 col-md-6 text-center">
+    <button (click)="login()"  class="btn btn-primary">Login</button>
+  </div>
+  </form>
+</div>
