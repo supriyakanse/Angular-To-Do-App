@@ -19,7 +19,7 @@ export class LoginComponent {
     this.userService.checkUser(this.loginForm.value).subscribe({
       next:(data:any)=>{
         this.router.navigate(['dashboard']);
-        console.log(data)
+        this.loginForm.reset();
         return data;
       },
       error:(error:any)=>{
