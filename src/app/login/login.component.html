@@ -35,6 +35,10 @@
     </div>
     <div *ngIf="isErrorPassword" class="text-danger">invalid password</div>
     <!--password-->
+    <div>
+      Don't have account?
+      <a routerLink="/register">Register here</a>
+    </div>
     <div class="form-group mt-3 col-md-6 text-center">
     <button (click)="login()"  class="btn btn-primary">Login</button>
   </div>
