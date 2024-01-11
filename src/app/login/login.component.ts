@@ -13,14 +13,17 @@ export class LoginComponent {
   loginForm!:FormGroup;
   isErrorEmail:boolean=false;
   isErrorPassword:boolean=false;
+  isUserLoggedIn!:boolean;
   result: any;
   constructor(private router: Router,private fb:FormBuilder,private userService:UserServiceService,private toastr: ToastrService) { }
   login() {
     this.userService.checkUser(this.loginForm.value).subscribe({
       next:(data:any)=>{
         this.router.navigate(['dashboard']);
+        this.userService.validUser=data.flag
+        
         this.loginForm.reset();
-        return data;
+        // return data;
       },
       error:(error:any)=>{
         console.log('error',error)
@@ -29,6 +32,7 @@ export class LoginComponent {
     });
    
   }
+  
   ngOnInit():void{
     this.loginForm=this.fb.group({
       email:this.fb.control('',[Validators.required,Validators.email]),

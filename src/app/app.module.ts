@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {DashboardGuardService} from './dashboard-guard.service'
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardTODOComponent } from './dashboard-todo/dashboard-todo.component';
 @NgModule({
@@ -28,7 +28,7 @@ import { DashboardTODOComponent } from './dashboard-todo/dashboard-todo.componen
     BrowserAnimationsModule, 
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [DashboardGuardService,LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

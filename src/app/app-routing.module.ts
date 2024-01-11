@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardTODOComponent } from './dashboard-todo/dashboard-todo.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DashboardGuardService } from './dashboard-guard.service';
+
 const routes: Routes = [
   {
     path: '', redirectTo: 'register', pathMatch: 'full'
@@ -14,7 +16,7 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent
   },
   {
-    path:'dashboard',component: DashboardTODOComponent
+    path:'dashboard',component: DashboardTODOComponent,canActivate:[DashboardGuardService]
   }
 ];
 

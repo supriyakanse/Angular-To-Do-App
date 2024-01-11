@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserServiceService {
-
   constructor(private http:HttpClient) { }
+  validUser:boolean=false;
   url:any='https://todoapapi.onrender.com/';
   postData(data:any){
   return this.http.post(`${this.url}register`,data);
